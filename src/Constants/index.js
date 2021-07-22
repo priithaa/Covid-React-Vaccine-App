@@ -1,6 +1,6 @@
- export const Doses = ['Dose 1','Dose 2'];
- export const Age = ['18','45'];
- export const Vaccine = ['Covaxin','Covishield','Sputnik'];
+ export const Doses = ['Dose 1','Dose 2','All'];
+ export const Age = ['18','45','All'];
+ export const Vaccine = ['Covaxin','Covishield','Sputnik','All'];
  export const currentDate = ()=>
   {
      var today = new Date();
@@ -10,7 +10,7 @@
  
 
 // Group by dates.
-export const makePairDates=(data,loadingM)=>
+export const makePairDates=(data,loadingM,age,dose)=>
 {
    if(loadingM===false)
    {
@@ -19,12 +19,38 @@ export const makePairDates=(data,loadingM)=>
       {  const y = element.sessions;
             for(const sesh in y)
                {
-                  let {date, available_capacity} = y[sesh];
+                  let {date, available_capacity,min_age_limit,available_capacity_dose1,available_capacity_dose2} = y[sesh];
+                  // console.log(typeof(age), typeof(min_age_limit))
+                  if(age=='All')
+                  {
+                     if(isNaN(obj[date])===true)
+                     {
+                        if(dose=='Dose 1')
+                           obj[date]=available_capacity;
+                        else if(dose==1)
+                           obj[date]=available_capacity_dose1;
+                        else
+                           obj[date]=available_capacity_dose2;
 
-                  if(isNaN(obj[date])===true)
-                        obj[date]=available_capacity;
-                  else
+                     }
+                     else
+                        if(dose=='Dose 2')
+                           obj[date]=available_capacity;
+                        else if(dose==1)
+                           obj[date]=available_capacity_dose1;
+                        else
+                           obj[date]=available_capacity_dose2;
+
+                  }
+                  else 
+                  {if(min_age_limit==age)
+                  { 
+                     if(isNaN(obj[date])===true)
+                           obj[date]=available_capacity;
+                     else
                         obj[date]=obj[date]+available_capacity;
+                  }}
+
                }
       }
       );

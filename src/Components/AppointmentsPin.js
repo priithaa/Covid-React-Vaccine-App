@@ -16,13 +16,12 @@ const AppointmentsPin = (props) => {
     const district = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${props.pincode}&date=${date}`;
     const {data, error, loadingM} = useFetch(district);
     const [search,setSearch]=useState('');
-    const [doseNumber, setdoseNumber] = useState('Dose 1');
-    const [minAge,setMinAge]=useState('18');
+ 
 
     const searchData = (sessions)=>
     {
         return sessions.filter((d)=>
-            d.name.toLowerCase().indexOf(search.toLowerCase())>-1&&d.min_age_limit.toLowerCase().indexOf(minAge.toLowerCase())>-1
+            d.name.toLowerCase().indexOf(search.toLowerCase())>-1
         );
     }
 
@@ -39,10 +38,8 @@ const AppointmentsPin = (props) => {
                 Doses={Doses}
                 Age = {Age}
                 Vaccine = {Vaccine}
-                doseNumber={doseNumber}
-                setdoseNumber={setdoseNumber}
-                minAge={minAge}
-                setMinAge={setMinAge}
+                age = {props.age}
+                setAge={props.setAge}
                 />
             </div>
             {data['sessions'].length===0?<>The Slots filled up!! Sorry try again</>:
@@ -58,7 +55,9 @@ const AppointmentsPin = (props) => {
                     min_age={m.min_age_limit}
                     vaccine={m.vaccine}
                     fee={m.fee}
-                    capacity={m.available_capacity}/>)}
+                    capacity={m.available_capacity}
+                    age = {props.age}
+                    setAge={props.setAge}/>)}
                 </div>
                 </>
             }

@@ -10,7 +10,7 @@ import {makeDate} from "../Constants";
 
 
 
-const Appointments = ({districtID,stateID}) => 
+const Appointments = ({districtID,stateID,age,setAge,dose,setDose}) => 
 {   const {date} = useParams();
     const district = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${districtID}&date=${date}`;
     const {data, error, loadingM} = useFetch(district);
@@ -34,7 +34,11 @@ const Appointments = ({districtID,stateID}) =>
                 <h2>{makeDate(date)}</h2>
                 <Filters Doses={Doses}
                 Age = {Age}
-                Vaccine = {Vaccine}/>
+                Vaccine = {Vaccine}
+                age = {age}
+                setAge={setAge}
+                dose = {dose}
+                setDose = {setDose}/>
             </div>
             {data['sessions'].length===0?<>The Slots filled up!! Sorry try again</>:
                 <>
@@ -49,7 +53,11 @@ const Appointments = ({districtID,stateID}) =>
                     min_age={m.min_age_limit}
                     vaccine={m.vaccine}
                     fee={m.fee}
-                    capacity={m.available_capacity}/>)}
+                    capacity={m.available_capacity}
+                    dose1={m.available_capacity_dose1}
+                    dose2 = {m.available_capacity_dose2}
+                    age={age}
+                    dose = {dose}/>)}
                 </div>
                 </>
             }

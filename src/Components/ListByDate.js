@@ -4,13 +4,16 @@ import {Doses,Age,Vaccine} from '../Constants';
 import TempDiv from './TempDiv';
 import {Link} from "react-router-dom";
 
-const ListByDate = ({pairedData,type}) => {
+const ListByDate = ({pairedData,type,age,setAge,dose,setDose}) => {
     pairedData.sort();
     return ( 
         <>
         {pairedData.length===0?(<h3>No centers Found</h3>):
         (<>
-        <Filters Doses={Doses} Age={Age} Vaccine={Vaccine}/>
+        <Filters Doses={Doses} Age={Age} Vaccine={Vaccine} age={age}
+                setAge ={setAge}
+                dose={dose}
+                setDose={setDose}/>
         <div className="list">
 
             {pairedData.map((m)=>{

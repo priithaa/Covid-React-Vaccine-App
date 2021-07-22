@@ -11,6 +11,8 @@ const Sidebox = () => {
     const [stateID,setStateID] = useState(9);
     const[pincode,setPincode] = useState('110078');
     const [type,setType] = useState(0);
+    const [age,setAge] = useState('All');
+    const [dose,setDose] = useState('All');
 
 
     return ( 
@@ -26,11 +28,24 @@ const Sidebox = () => {
                 setPincode={setPincode}
                 type={type}
                 setType={setType}
+                age={age}
+                setAge ={setAge}
+                dose={dose}
+                setDose={setDose}
                 /></Route>   
                 <Route exact path='/appointment/:date'><Appointments 
                 districtID={districtID} 
-                stateID={stateID}/></Route>
-                <Route exact path='/appointmentPin/:date'><AppointmentsPin pincode={pincode}/></Route>
+                stateID={stateID}
+                age={age}
+                setAge ={setAge}
+                dose={dose}
+                setDose={setDose}/>
+               </Route>
+                <Route exact path='/appointmentPin/:date'><AppointmentsPin pincode={pincode}
+                age={age}
+                setAge ={setAge}
+                dose={dose}
+                setDose={setDose}/></Route>
                 <Route path='/*'><NotFound/></Route>
             </Switch>
         </Router>   

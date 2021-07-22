@@ -1,62 +1,70 @@
-*
-{
+* {
   padding: 0%;
   margin: 0%;
 }
 body {
   margin: 0;
-  font-family: acumin-pro,sans-serif;
+  font-family: acumin-pro, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./Images/v870-tang-36.jpg');
+  background-image: url("Images/v870-tang-36.jpg");
+  /* transform: rotate(30deg); */
+  background-size: cover;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.app
-{
+.app {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
 }
 /* Content */
-.header
-{
+.header {
   width: 50%;
-  height: 700px;
+  height: auto;
   background-color: white;
   border-radius: 10px;
   margin: 20px 40px;
   padding: 30px;
-  text-align: center;
+  text-align: left;
+  color: #ff9999;
 }
 
-.header h1{
-  color: #bed4cc;
+.header h1 {
+  color: #0571b9;
   font-size: 60px;
   font-weight: 100;
   opacity: 1px;
+  text-align: center;
+}
+
+.header .chart-heading {
+  color: #0571b9;
+  font-size: 40px;
+}
+
+.chart-1 {
+  max-width: 500px;
+  max-height: 500px;
+  margin: auto;
 }
 /* Side Box */
-.form-check
-{
-  height:max-content;
-  width:500px;
+.form-check {
+  height: max-content;
+  width: 500px;
   text-align: center;
   background-color: white;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 2px;
   margin: 20px 40px;
-
-  
 }
 
-button
-{
+button {
   padding: 2%;
   width: 150px;
   margin: 6%;
@@ -65,21 +73,18 @@ button
   background-color: #74d4cc;
   color: whitesmoke;
   font-size: larger;
-
 }
 
-button:active
-{
+button:active {
   transform: scale(0.98);
 }
 
-.checked
-{
+.checked {
   background-color: #ff9999;
 }
 
-.form-selection select, input{
-
+.form-selection select,
+input {
   width: 400px;
   height: 50px;
   margin: 10px;
@@ -87,117 +92,107 @@ button:active
   border-radius: 10px;
   padding: 10px;
   font-size: larger;
-  color:lightslategray;
-  border: 2px solid rgb(116,212,204);
-
+  color: lightslategray;
+  border: 2px solid rgb(116, 212, 204);
 }
 
-.form-selection select:focus, input:focus
-{
+.form-selection select:focus,
+input:focus {
   outline: none;
   border: 2px solid #ff9999;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
-.list .seperator
-{
+.list .seperator {
   width: auto;
   margin: 15px auto;
-  border-bottom: 1px solid rgba(230,230,230,255);
+  border-bottom: 1px solid rgba(230, 230, 230, 255);
 }
 
-.day-appointment
-{
+.day-appointment {
   margin: 8px 0;
   display: flex;
 }
-.day-appointment h3{
+.day-appointment h3 {
   float: left;
   display: inline;
   padding: 10px;
   margin-right: 70px;
 }
 
-.day-appointment span{
+.day-appointment span {
   float: right;
   padding: 10px;
-  color:#ff9999;
+  color: #ff9999;
   font-size: larger;
   font-weight: 500;
   margin-left: 150px;
 }
 
-.filters select{
+.filters select {
   height: 30px;
   width: fit-content;
   padding: 5px;
   margin: 20px;
-  background-color: rgb(116,212,204);
+  background-color: rgb(116, 212, 204);
   color: white;
   font-size: larger;
   border: none;
   border-radius: 10px;
   outline: none;
-
 }
 
-.filter .checked
-{
+.filter .checked {
   outline: none;
   background-color: black;
   color: whitesmoke;
 }
 
 /* Appointments Page */
-.aapointment-list
-{
+.aapointment-list {
   width: 500px;
   height: 500px;
   overflow: auto;
-  text-align:justify;
+  text-align: justify;
 }
 
-.appointment-header h3{
- margin: auto 300px 30px auto;
+.appointment-header h3 {
+  margin: auto 300px 30px auto;
 }
 
-.appointment-header h2{
+.appointment-header h2 {
   font-size: x-large;
   font-weight: 900;
 }
 
 /* Slot Boxes */
 
-.slot-box
-{
- display: flex;
- border-radius: 10px;
-  border: 2px solid rgb(116,212,204);
- box-shadow: 3px;
- margin: 3% auto;
- 
+.slot-box {
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid rgb(116, 212, 204);
+  box-shadow: 3px;
+  margin: 3% auto;
 }
-.slot-info
-{
+.slot-info {
   padding: 10px;
 }
-.slot-links
-{
+.slot-links {
   margin-left: auto;
-  background-color:#ff9999;
+  background-color: #ff9999;
   justify-self: center;
-  border-radius:0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
 }
 
-.slot-links p{
+.slot-links p {
   margin: 10px 0;
   padding: 10px;
 }
 
-.cursorDisabled{
+.cursorDisabled {
   cursor: default;
   /* color: #cc6565; */
 }
